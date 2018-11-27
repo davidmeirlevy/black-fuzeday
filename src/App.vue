@@ -22,15 +22,13 @@
         @Conversation.Action(CONVERSATION_ACTIONS.ADD_MESSAGE) addMessage !: Function;
         @Products.Action(SELLER_ACTIONS.FETCH_PRODUCTS) fetchProducts !: Function;
 
-        created(){
-        	this.fetchProducts();
-		}
-
-		mounted() {
+		async mounted() {
 		    this.addMessage({
 				speaker: 'Bot',
 				payload: 'What would you like to shop?'
-			})
+			});
+
+            await this.fetchProducts();
 
 			this.addMessage({
 				speaker: 'Bot',
