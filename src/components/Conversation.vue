@@ -1,9 +1,9 @@
 <template>
     <ul>
         <li v-for="item in messages">
-            <el-card v-bind:class="userMessage(item.author)" class="box-card">
+            <el-card v-bind:class="userMessage(item.type)" class="box-card">
             <div slot="header" class="clearfix">
-                <span>{{ item.author}}</span>
+                <span>{{ item.type}}</span>
             </div>
             {{ item.message }}
             </el-card>
@@ -25,15 +25,22 @@
 </script>
 
 <style scoped>
+    ul {
+        margin: 0;
+    }
     li {
         list-style-type: none;
         margin-bottom: 10px;
     }
     .box-card {
         border-radius: 20px;
+        margin-left: 0;
+        margin-right: 50px;
     }
 
     .box-right {
         text-align: right;
+        margin-right: 0;
+        margin-left: 50px;
     }
 </style>
