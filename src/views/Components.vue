@@ -1,5 +1,5 @@
 <template>
-    <Header title="Hello I'm A header"></Header>
+
 </template>
 
 <script lang="ts">
