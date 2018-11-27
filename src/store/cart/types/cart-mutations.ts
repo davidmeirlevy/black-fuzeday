@@ -1,0 +1,3 @@
+export enum CART_MUTATIONS {
+    SET_CART_ITEM = 'SET_CART_ITEM'
+}

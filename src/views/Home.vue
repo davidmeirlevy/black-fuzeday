@@ -9,7 +9,7 @@
                         <span>{{product.title}}</span>
                         <div class="bottom">
                         <time class="price">price: {{product.variants[0].price}}</time>
-                        <el-button type="success" round class="button">Buy</el-button>
+                        <el-button type="success" round class="button" @click="add(product)">Buy</el-button>
                         </div>
                     </div>
                     </el-card>
@@ -25,8 +25,9 @@
     import {CART_GETTERS} from "../store/cart/types/cart-getters";
     import {namespace, Getter as RootGetter, Action as RootAction} from 'vuex-class';
     import Product = ShopifyBuy.Product;
+    import { CART_ACTIONS } from '@/store/cart/types/cart-actions';
 
-    const {Getter} = namespace(CART_MODULE);
+    const {Getter, Action} = namespace(CART_MODULE);
 
     @Component({
         components: {
@@ -38,9 +39,19 @@
         @RootGetter('products') products!: Array<Product>;
         @RootAction('fetchProducts') fetchProducts!: Function;
 
+
+        @Action(CART_ACTIONS.SET_CART_ITEM) addToCart!: Function;
+
         mounted() {
             this.fetchProducts();
         }
 
+        add(product: Product) {
+            this.addToCart({id: product.id});
+        }
+
     }
 </script>
+<style scoped>
+
+</style>

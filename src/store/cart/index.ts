@@ -11,7 +11,7 @@ export const CartModule: Module<ICartState, IRootState> = {
     namespaced: true,
     state: {
         checkoutId: 'first checkout ID',
-        products: []
+        products: {}
     },
     mutations,
     actions,
