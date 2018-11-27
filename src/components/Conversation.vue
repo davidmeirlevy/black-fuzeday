@@ -1,7 +1,7 @@
 <template>
     <ul>
         <li v-for="item in messages" :key="$index">
-            <Message :speaker="item.speaker" :payload="item.payload"></Message>
+            <component v-bind:is="item.type || 'Message'" :speaker="item.speaker" :payload="item.payload"></component>
         </li>
     </ul>
 </template>
@@ -9,7 +9,7 @@
 <script lang="ts">
 	import {Component, Prop, Vue} from "vue-property-decorator";
     import {IMessageItem} from '../store/conversation/types/conversation-state';
-    import Message from './Message';
+    import Message from './Message.vue';
 
 	@Component({
         components: {
