@@ -1,0 +1,3 @@
+export enum CONVERSATION_MUTATIONS {
+    ADD_MESSAGE = 'ADD_MESSAGE'
+}
