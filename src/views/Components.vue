@@ -1,21 +1,21 @@
 <template>
-    <Layout>
-        MAIN
-    </Layout>
+
 </template>
 
 <script lang="ts">
     import {Component, Vue} from "vue-property-decorator";
-    import Layout from "@/components/Layout.vue";
+    import Header from '@/components/Header.vue';
 
     @Component({
         components: {
-            Layout,
+            Header
         },
     })
-    export default class Home extends Vue {
+
+    export default class Components extends Vue {
     }
 </script>
+
 <style scoped>
 
 </style>
