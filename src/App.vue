@@ -4,13 +4,17 @@
 	</div>
 </template>
 <script lang="ts">
-    import {Component, Vue} from "vue-property-decorator";
+	import {Component, Vue} from "vue-property-decorator";
+	import {SELLER_ACTIONS} from './store/seller/types/seller-actions';
 
     @Component({
         components: {
         },
     })
     export default class App extends Vue {
+		mounted() {
+			this.$store.dispatch(SELLER_ACTIONS.FETCH_PRODUCTS);
+		}
     }
 </script>
 <style lang="scss" scoped>
