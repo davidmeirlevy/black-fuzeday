@@ -12,12 +12,14 @@
     import Message from './Message.vue';
     import Choices from './Choices.vue';
     import Products from './Products.vue';
+    import Product from './Product.vue';
 
 	@Component({
         components: {
             Message,
             Choices,
-            Products
+            Products,
+            Product
         }
     })
 	export default class Conversation extends Vue {
