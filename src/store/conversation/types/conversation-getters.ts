@@ -1,0 +1,3 @@
+export enum CONVERSATION_GETTERS {
+    GET_MESSAGES = 'GET_MESSAGES'
+}

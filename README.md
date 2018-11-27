@@ -6,7 +6,7 @@
   Header: 
    - search for products 
 
-   - cart icon with amount of selected items badge 
+   - cart icon with quantity of selected items badge 
 
 **Selected product page** (route to it by selecting a product)
   - product model details to show:

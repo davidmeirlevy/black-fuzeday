@@ -1,5 +1,7 @@
+import { Dictionary } from 'vuex';
+
 export interface ICartState {
-    products: Array<string>,
+    products: Dictionary<string>,
     checkoutId: string
 }
 
