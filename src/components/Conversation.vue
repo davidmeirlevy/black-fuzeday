@@ -1,6 +1,6 @@
 <template>
     <ul>
-        <li v-for="item in messages" :key="$index">
+        <li v-for="item in messages">
             <component v-bind:is="item.type || 'Message'" :speaker="item.speaker" :payload="item.payload"></component>
         </li>
     </ul>
@@ -29,16 +29,5 @@
     li {
         list-style-type: none;
         margin-bottom: 10px;
-    }
-    .box-card {
-        border-radius: 20px;
-        margin-left: 0;
-        margin-right: 50px;
-    }
-
-    .box-right {
-        text-align: right;
-        margin-right: 0;
-        margin-left: 50px;
     }
 </style>

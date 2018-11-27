@@ -16,6 +16,7 @@ export enum Speaker {
 export enum MessageType {
     products = 'Products',
     product = 'Product',
+    choices = 'Choices',
     cart = 'Cart',
     checkout = 'Checkout',
     message = 'Message'

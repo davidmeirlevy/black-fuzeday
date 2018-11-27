@@ -1,12 +1,6 @@
 <template>
     <Layout>
         <Conversation :messages="messages"></Conversation>
-        <Scroller>
-            <el-card :body-style="{ padding: '0px' }" v-for="(item, index) in 50">
-                <img src="https://picsum.photos/100/100" class="image">
-                <p>Product title</p>
-            </el-card>
-        </Scroller>
     </Layout>
 </template>
 
