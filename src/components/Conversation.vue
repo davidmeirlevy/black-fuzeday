@@ -10,10 +10,14 @@
 	import {Component, Prop, Vue} from "vue-property-decorator";
     import {IMessageItem} from '../store/conversation/types/conversation-state';
     import Message from './Message.vue';
+    import Choices from './Choices.vue';
+    import Products from './Products.vue';
 
 	@Component({
         components: {
-            Message
+            Message,
+            Choices,
+            Products
         }
     })
 	export default class Conversation extends Vue {
