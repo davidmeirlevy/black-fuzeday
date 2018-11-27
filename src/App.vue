@@ -5,15 +5,23 @@
 </template>
 <script lang="ts">
 	import {Component, Vue} from "vue-property-decorator";
-	import {SELLER_ACTIONS} from './store/seller/types/seller-actions';
+    import {namespace} from "vuex-class";
+    import {CONVERSATION_MODULE} from "./store/conversation";
+    import {CONVERSATION_ACTIONS} from "./store/conversation/types/conversation-actions";
+    const {Action} = namespace(CONVERSATION_MODULE);
 
     @Component({
         components: {
         },
     })
     export default class App extends Vue {
+        @Action(CONVERSATION_ACTIONS.ADD_MESSAGE) addMessage !: Function;
+
 		mounted() {
-			this.$store.dispatch(SELLER_ACTIONS.FETCH_PRODUCTS);
+		    this.addMessage({
+				speaker: 'Bot',
+				payload: 'What would you like to shop?'
+			})
 		}
     }
 </script>

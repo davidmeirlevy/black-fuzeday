@@ -16,7 +16,6 @@
 
     const {Getter} = namespace(CONVERSATION_MODULE);
 
-
     @Component({
         components: {
             Layout,

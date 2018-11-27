@@ -1,6 +1,6 @@
 <template>
     <el-card v-bind:class="direction" class="box-card">
-        <div class="clearfix">
+        <div slot="header" class="clearfix">
             <span>{{ speaker}}</span>
         </div>
         {{ payload }}
