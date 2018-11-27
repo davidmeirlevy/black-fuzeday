@@ -1,17 +1,10 @@
 <template>
-    <el-card>
-        <div slot="header" class="clearfix">
-            <span>{{ speaker}}</span>
-        </div>
-        <Scroller>
-            <el-card :body-style="{ padding: '0px', width: '100px' }" v-for="product in products">
-                <img :src="product.images[0].src" class="image">
-                <p>{{product.title}}</p>
-            </el-card>
-        </Scroller>
-    </el-card>
-
-
+    <Scroller>
+        <el-card :body-style="{ padding: '5px', width: '100px' }" v-for="product in products">
+            <img :src="product.images[0].src" class="image">
+            <p>{{product.title}}</p>
+        </el-card>
+    </Scroller>
 </template>
 
 <script lang="ts">
@@ -32,7 +25,13 @@
 	export default class Products extends Vue {
         @Prop() private speaker!: string;
         @Prop() private payload!: string;
-        @Getter(SELLER_GETTERS.GET_FILTERED_PRODUCTS) products!: Array<Product>;
+        @Getter(SELLER_GETTERS.GET_FILTERED_PRODUCTS) filteredProducts!: Array<Product>;
+
+        private products:Array<Product> = [];
+
+        mounted() {
+            this.products = this.products.concat(this.filteredProducts);
+        }
 
         get direction() {
             return this.speaker === 'User' && 'box-right';
