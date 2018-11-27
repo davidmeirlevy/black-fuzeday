@@ -1,13 +1,14 @@
 import { GetterTree } from 'vuex';
 import { ISellerState, Category } from '@/store/seller/types/seller-state';
 import { IRootState } from '@/store/types/root-state';
+import {SELLER_GETTERS} from "@/store/seller/types/seller-getters";
 
 const texts = {
     [Category.music]: ['headphone', 'earphone'],[Category.games]: ['joystick', 'fortnite']
 }
 
 export const getters: GetterTree<ISellerState, IRootState> = {
-    filteredProducts: state => state.products
+    [SELLER_GETTERS.GET_FILTERED_PRODUCTS]: state => state.products
         .filter(product => {
             if(state.currentCategory) {
                 var res = false;
@@ -19,5 +20,5 @@ export const getters: GetterTree<ISellerState, IRootState> = {
             return false;
         }),
 
-    fetchProducts: state => state.products
+    [SELLER_GETTERS.FETCH_PRODUCTS]: state => state.products
 };

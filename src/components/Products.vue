@@ -1,24 +1,38 @@
 <template>
-    <Scroller>
-        <el-card :body-style="{ padding: '0px' }" v-for="product in products">
-            <img :src="product.images[0].src" class="image">
-            <p>{{product.title}}</p>
-        </el-card>
-    </Scroller>
+    <el-card>
+        <div slot="header" class="clearfix">
+            <span>{{ speaker}}</span>
+        </div>
+        <Scroller>
+            <el-card :body-style="{ padding: '0px', width: '100px' }" v-for="product in products">
+                <img :src="product.images[0].src" class="image">
+                <p>{{product.title}}</p>
+            </el-card>
+        </Scroller>
+    </el-card>
+
+
 </template>
 
 <script lang="ts">
 	import {Component, Prop, Vue} from "vue-property-decorator";
-    import Scroller from "Scroller.vue";
+    import Scroller from "./Scroller.vue";
+    import {namespace} from "vuex-class";
+    import {SELLER_MODULE} from "../store/seller";
+    import {SELLER_GETTERS} from "../store/seller/types/seller-getters";
+    const {Getter} = namespace(SELLER_MODULE);
+    import Product = ShopifyBuy.Product;
 
-	@Component({
+
+    @Component({
         components: {
             Scroller
         }
     })
-	export default class Conversation extends Vue {
+	export default class Products extends Vue {
         @Prop() private speaker!: string;
         @Prop() private payload!: string;
+        @Getter(SELLER_GETTERS.GET_FILTERED_PRODUCTS) products!: Array<Product>;
 
         get direction() {
             return this.speaker === 'User' && 'box-right';
