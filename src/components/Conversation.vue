@@ -1,26 +1,23 @@
 <template>
     <ul>
         <li v-for="item in messages" :key="$index">
-            <el-card v-bind:class="userMessage(item.speaker)" class="box-card">
-            <div slot="header" class="clearfix">
-                <span>{{ item.speaker}}</span>
-            </div>
-            {{ item.payload }}
-            </el-card>
-            </li>
+            <Message :speaker="item.speaker" :payload="item.payload"></Message>
+        </li>
     </ul>
 </template>
 
 <script lang="ts">
 	import {Component, Prop, Vue} from "vue-property-decorator";
+    import {IMessageItem} from '../store/conversation/types/conversation-state';
+    import Message from './Message';
 
-	@Component
-	export default class Conversation extends Vue {
-        @Prop() private messages!: Array<any>;
-        
-        userMessage(sender: string) {
-            return sender === 'User' && 'box-right';
+	@Component({
+        components: {
+            Message
         }
+    })
+	export default class Conversation extends Vue {
+        @Prop() private messages!: Array<IMessageItem>;
 	}
 </script>
 
