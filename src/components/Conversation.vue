@@ -1,11 +1,11 @@
 <template>
     <ul>
-        <li v-for="item in messages">
-            <el-card v-bind:class="userMessage(item.type)" class="box-card">
+        <li v-for="item in messages" :key="$index">
+            <el-card v-bind:class="userMessage(item.speaker)" class="box-card">
             <div slot="header" class="clearfix">
-                <span>{{ item.type}}</span>
+                <span>{{ item.speaker}}</span>
             </div>
-            {{ item.message }}
+            {{ item.payload }}
             </el-card>
             </li>
     </ul>

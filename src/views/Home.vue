@@ -1,13 +1,6 @@
 <template>
     <Layout>
-        <Conversation
-                :messages="[
-            {type: 'Bot', message: 'Hello'}, 
-            {type: 'User', message: 'I want to buy boots'}, 
-            {type: 'Bot', message: 'Kill all humans'}, 
-            {type: 'User', message: 'Oh no'}
-        ]"
-        ></Conversation>
+        <Conversation :messages="messages"></Conversation>
         <Scroller>
             <el-card :body-style="{ padding: '0px' }" v-for="(item, index) in 50">
                 <img src="https://picsum.photos/100/100" class="image">
@@ -22,6 +15,13 @@
     import Layout from "@/components/Layout.vue";
     import Scroller from "@/components/Scroller.vue";
     import Conversation from '@/components/Conversation.vue';
+    import {namespace} from "vuex-class";
+    import {CONVERSATION_MODULE} from "../store/conversation";
+    import {CONVERSATION_GETTERS} from "../store/conversation/types/conversation-getters";
+    import {IMessageItem} from '../store/conversation/types/conversation-state';
+
+    const {Getter} = namespace(CONVERSATION_MODULE);
+
 
     @Component({
         components: {
@@ -31,6 +31,8 @@
         },
     })
     export default class Home extends Vue {
+        @Getter(CONVERSATION_GETTERS.GET_MESSAGES) messages!: Array<IMessageItem>;
+
     }
 </script>
 <style lang="scss" scoped>

@@ -3,6 +3,7 @@ import Vuex from 'vuex'
 import {IRootState} from '@/store/types/root-state';
 import {CartModule, CART_MODULE} from '@/store/cart';
 import {shopify} from '@/services/shopify-client';
+import {CONVERSATION_MODULE, ConversationModule} from "@/store/conversation";
 
 Vue.use(Vuex);
 
@@ -15,6 +16,7 @@ export default new Vuex.Store({
     state,
     modules: {
         [CART_MODULE]: CartModule,
+        [CONVERSATION_MODULE]: ConversationModule,
     },
     mutations: {
         fetchProducts(state, products) {
