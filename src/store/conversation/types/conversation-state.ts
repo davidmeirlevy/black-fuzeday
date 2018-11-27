@@ -4,10 +4,12 @@ export interface IConversationState {
 
 export interface IMessageItem {
     speaker: Speaker,
-    msg: String
+    payload: any
 }
 
 export enum Speaker {
     user = 'user',
+    products = 'products',
+    product = 'product',
     shopBot = 'shopBot'
 }

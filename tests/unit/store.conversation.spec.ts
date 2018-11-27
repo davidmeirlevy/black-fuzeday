@@ -22,7 +22,7 @@ describe('store/conversation', () => {
         const rnd = Math.random()
         const messages = [{ 
           speaker: Speaker.user, 
-          msg: "msg-" + rnd
+          payload: "msg-" + rnd
         }];
         //@ts-ignore
         expect(getMessages({messages})).toStrictEqual(messages);
@@ -41,10 +41,10 @@ describe('store/conversation', () => {
           committed.push({type, payload})
         }
         //@ts-ignore
-        addMessage({commit}, {user: Speaker.user, msg: "foo"})
+        addMessage({commit}, {user: Speaker.user, payload: "foo"})
         expect(committed.length).toEqual(1);
         expect(committed[0].type).toEqual(CONVERSATION_MUTATIONS.ADD_MESSAGE)
-        expect(committed[0].payload).toEqual({user: Speaker.user, msg: "foo"})
+        expect(committed[0].payload).toEqual({user: Speaker.user, payload: "foo"})
       })
     });
   });
@@ -70,12 +70,12 @@ describe('store/conversation', () => {
         const state = {
           messages: Array.from(Array(100)).map((_,ix) => ({
               speaker: Speaker.user,
-              msg:     'msg ' + ix
+              payload:     'msg ' + ix
           }))
         }
         const message = {
           speaker: Speaker.user,
-          msg: 'sports, please'
+          payload: 'sports, please'
         };
 
         beforeAll(() => {

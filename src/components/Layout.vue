@@ -1,7 +1,9 @@
 <template>
     <el-container>
         <el-header><Header title="Black FuzeDay" /></el-header>
-        <el-main><slot></slot></el-main>
+        <el-main>
+            <slot></slot>
+        </el-main>
         <el-footer height="40px"><Footer /></el-footer>
     </el-container>
 </template>
@@ -15,7 +17,7 @@
     @Component({
         components: {
             Header,
-            Footer
+            Footer,
         }
     })
     export default class Layout extends Vue {
