@@ -7,7 +7,9 @@
     "start": "node server.js",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "test:unit": "vue-cli-service test:unit"
+    "test:unit": "vue-cli-service test:unit",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "dependencies": {
     "@types/shopify-buy": "^1.4.2",
@@ -24,12 +26,19 @@
     "vuex-class": "^0.3.1"
   },
   "devDependencies": {
+    "@babel/core": "^7.1.6",
+    "@storybook/addon-actions": "^4.0.9",
+    "@storybook/addon-links": "^4.0.9",
+    "@storybook/addons": "^4.0.9",
+    "@storybook/vue": "^4.0.9",
     "@types/jest": "^23.1.4",
     "@vue/cli-plugin-typescript": "^3.0.0",
     "@vue/cli-plugin-unit-jest": "^3.0.0",
     "@vue/cli-service": "^3.0.0",
     "@vue/test-utils": "^1.0.0-beta.20",
+    "babel-loader": "^8.0.4",
     "babel-plugin-component": "^1.1.1",
+    "babel-preset-vue": "^2.0.2",
     "node-sass": "^4.9.0",
     "sass-loader": "^7.0.1",
     "ts-jest": "^23.0.0",
