@@ -6,7 +6,7 @@
 
         <h3>{{payload.title}}</h3>
 
-        <el-carousel indicator-position="outside">
+        <el-carousel indicator-position="outside" type="card">
             <el-carousel-item v-for="image in payload.images">
                 <img :src="image.src" alt="">
             </el-carousel-item>
@@ -27,8 +27,6 @@
 
 <style lang="scss" scoped>
     img {
-
-        width: 100%;
         height: 100%;
     }
 </style>

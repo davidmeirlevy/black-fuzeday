@@ -41,6 +41,8 @@
 </script>
 <style lang="scss" scoped>
 	#app {
+		max-width: 600px;
+		margin: auto;
 		font-family: Helvetica, Ariaßl, sans-serif;
 		-webkit-font-smoothing: antialiased;
 		-moz-osx-font-smoothing: grayscale;
